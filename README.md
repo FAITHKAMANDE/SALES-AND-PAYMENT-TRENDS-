@@ -51,5 +51,7 @@ The analysis serves as a foundation for strategic recommendations that can help 
 - Column names were stripped of unnecessary spaces to standardize and avoid any potential referencing issues when manipulating the data.
 <img width="1099" alt="Screenshot 2024-10-23 at 11 43 14" src="https://github.com/user-attachments/assets/ef3b117f-772d-43d1-92a3-34eba047794c">
 
+4) CONVERTING THE DATA TYPES.
+- The DATE columns in all datasets were converted to datetime format. This ensures that all dates are consistently formatted and allows for accurate date-based analysis.
 
 
