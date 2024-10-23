@@ -35,7 +35,21 @@ The analysis serves as a foundation for strategic recommendations that can help 
 - The data cleaning process is a crucial step to ensure that the dataset is structured and ready for analysis. In this stage i dropped the irrelevant columns: Columns Unnamed: 5 and Unnamed: 6 and number which contained no useful information. 
 - This reduces noise and ensures only relevant data is retained.
   <img width="848" alt="Screenshot 2024-10-23 at 11 01 07" src="https://github.com/user-attachments/assets/c6db877a-2c7d-4515-93de-5539160311be">
-2) 
+2) DROPPING THE NUMBER COLUMNS
+  ```python
+  # DROPPING THE NUMBER COLUMN
+  payments_copy.drop(columns = 'NUMBER',inplace = True)
+  ```
+  ```python
+  # CHECKING IF  'NUMBER' IS IN COLUMNS
+  if 'NUMBER' in payments_copy.columns:
+    print("The 'NUMBER' column exists.")
+  else:
+    print("The 'NUMBER' column does not exist.")
+  ```  
+3) REMOVING SPACES
+- Column names were stripped of unnecessary spaces to standardize and avoid any potential referencing issues when manipulating the data.
+<img width="1099" alt="Screenshot 2024-10-23 at 11 43 14" src="https://github.com/user-attachments/assets/ef3b117f-772d-43d1-92a3-34eba047794c">
 
 
 
