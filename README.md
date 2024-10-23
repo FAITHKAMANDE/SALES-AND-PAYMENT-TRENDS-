@@ -184,6 +184,95 @@ total_payments['METHOD'].value_counts()
 - CASH payments come in second, with 258 transactions, showing that a notable portion of customers still prefer traditional payment methods.
 - CREDIT CARD payments are the least used, with only 74 transactions. This suggests either limited credit card usage among the customer base or a preference for other payment methods.
 
+### 8) VISUALIZATION OF THE DISTRIBUTION OF PAYMENT METHODS
+```Python
+plt.figure(figsize=(10, 6)) 
+sns.countplot(data=total_payments, x='METHOD')
+plt.xticks(rotation=90, fontsize=12) 
+plt.title('Payment Method Count', fontsize=14)
+plt.xlabel('Payment Method', fontsize=12)
+plt.ylabel('Count', fontsize=12)
+plt.show()
+```
+<img width="922" alt="Screenshot 2024-10-23 at 16 02 52" src="https://github.com/user-attachments/assets/a9ab17d8-006d-43f1-819b-1656557be9ea">
 
+### 9) Top customers by payments 
+```Python
+top_payment_customers = total_payments.groupby('NAME')['AMOUNT'].sum().sort_values(ascending=False).head(10)
+top_payment_customers.plot(kind='bar')
+plt.show()
+```
+<img width="656" alt="Screenshot 2024-10-23 at 16 05 50" src="https://github.com/user-attachments/assets/4c66c806-9a2f-48b4-a020-8a21bc5e78c8">
 
+### 10) Top customers by sales 
+``` Python
+top_sales_customers = sales_copy.groupby('NAMES')['SALES'].sum().sort_values(ascending=False).head(10)
+top_sales_customers.plot(kind='bar')
+plt.show()
+```
+<img width="725" alt="Screenshot 2024-10-23 at 16 08 38" src="https://github.com/user-attachments/assets/883b7f7a-914a-4f73-9fab-cfcd8de69e6e">
+
+### 11) Total sales per month
+```Python
+monthly_sales = sales_copy.resample('ME', on='DATE')['SALES'].sum()
+monthly_sales.plot(kind='line')
+plt.show()
+```
+<img width="655" alt="Screenshot 2024-10-23 at 16 15 37" src="https://github.com/user-attachments/assets/20496045-c54d-4149-9dde-9683a5d7bbb9">
+
+### 12) Comparison of the Totalsales and totalpaymnets
+```Python
+totalp= total_payments['AMOUNT'].sum()
+totals = sales_copy['SALES'].sum()
+
+print(f"Totalp: {totalp}")
+print(f"Totals: {totals}")
+
+# Plot comparison
+plt.bar(['Totalp', 'Totals'], [totalp, totals], color=['red', 'green'])
+plt.show()
+```
+<img width="726" alt="Screenshot 2024-10-23 at 16 18 06" src="https://github.com/user-attachments/assets/2cb9565f-7e4a-43ba-9cc3-41ffccec3a9a">
+
+## 6. OVERALL FINDINGS
+- MPESA Dominates Payments: MPESA is the most frequently used payment method with 1,027 transactions, reflecting its convenience and widespread adoption. CASH follows with 258 transactions, while CREDIT CARD is the least used with only 74 transactions, indicating either limited usage or preference for other methods.
+
+- Sales: Most sales are concentrated in the lower range, between 0-2,500, with a few larger sales exceeding 10,000. This right-skewed distribution suggests that the majority of sales are relatively small, with only a 
+  handful of high-value sales.
+
+- Payments: The payment amounts also show a right-skewed distribution, with most payments falling below 5,000. Larger payments, exceeding 20,000, are few but noticeable.
+
+- The most frequent sales range is 0-2,500, aligning with the observation that most sales are on the lower end. Similarly, the most frequent payment amounts fall between 0-2,500, showing a consistent pattern with the 
+  sales distribution.
+
+- Top Customers: There is a clear identification of top customers, both in terms of sales and payments, which could provide insights for targeted marketing or customer engagement strategies.
+
+- Payments: The largest payment month is August, with Ksh 359,390, while the smallest is December with Ksh 24,730.
+
+- Sales: The highest sales occur in January (Ksh 325,400), while the lowest occur in June (Ksh 98,150).
+
+- Sales and Payment Trends: Both sales and payments show a declining trend throughout the year, starting high in January and steadily decreasing. The trends intersect in July, indicating that payments caught up to 
+  sales at that point, suggesting that there were previously outstanding balances that were settled after this period.
+
+## 7. RECOMMENDATION
+- Encourage MPESA Usage: Since MPESA is the dominant payment method, continue to optimize and promote it as a preferred payment option. Offering incentives for MPESA users, such as discounts or cashback, could 
+  encourage even greater adoption.
+
+- Target High-Value Customers: Since a few large transactions contribute significantly to overall sales, consider offering personalized deals or loyalty programs to high-value customers. This can help sustain or even 
+  grow the revenue generated from these customers.
+
+- Address Declining Sales and Payments: The decline in both sales and payments throughout the year suggests a potential seasonal trend or customer disengagement. Investigate the causes behind this and develop 
+  strategies to boost sales, such as:
+
+- Offering promotions or discounts during slow months.
+  1) Launching targeted marketing campaigns to re-engage customers.
+  2) Implementing payment plans or subscription services to stabilize revenue.
+  3) Improve Credit Card Payment Options: The low usage of credit cards could indicate a need for improvement in credit card payment systems or customer education on how to use them. Offering flexible payment plans 
+     or installment options through credit cards could encourage more usage.
+
+- Focus on Small to Medium Sales: Since the most frequent sales range is 0-2,500, consider offering packages or bundles in this price range to appeal to this core segment of customers. Additionally, investigate 
+  opportunities to increase the average transaction size by upselling or cross-selling.
+
+- Monitor Outstanding Payments: The intersection of sales and payments in July suggests a lag in payments for prior sales. Implementing reminders or incentives for timely payments could help in reducing outstanding 
+  balances and improve cash flow.
 
