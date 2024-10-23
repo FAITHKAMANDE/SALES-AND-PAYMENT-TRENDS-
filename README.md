@@ -31,4 +31,11 @@ The analysis serves as a foundation for strategic recommendations that can help 
     5) Types of variables (e.g., categorical, numerical, date) to determine appropriate cleaning and analysis methods.
   - By reviewing the first few rows, we can also identify if further preprocessing is required before diving into deeper analysis, ensuring that the data is clean, consistent, and ready for meaningful insights.
 ## 4. CLEANING THE DATA PROCESS 
+1) DROPPING THE COLUMNS WITH NAN VALUES
+- The data cleaning process is a crucial step to ensure that the dataset is structured and ready for analysis. In this stage i dropped the irrelevant columns: Columns Unnamed: 5 and Unnamed: 6 and number which contained no useful information. 
+- This reduces noise and ensures only relevant data is retained.
+  <img width="848" alt="Screenshot 2024-10-23 at 11 01 07" src="https://github.com/user-attachments/assets/c6db877a-2c7d-4515-93de-5539160311be">
+2) 
+
+
 
