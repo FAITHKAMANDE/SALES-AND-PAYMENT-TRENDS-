@@ -275,4 +275,3 @@ plt.show()
 
 - Monitor Outstanding Payments: The intersection of sales and payments in July suggests a lag in payments for prior sales. Implementing reminders or incentives for timely payments could help in reducing outstanding 
   balances and improve cash flow.
-
